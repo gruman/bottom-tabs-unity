@@ -1,22 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TabsManager : MonoBehaviour
 {
-    public GameObject screen;
-    float speed = 10f;
-    public Vector2[] positions;
-    Vector2 target;
+    public GameObject screen; // the background - mine is the Screen GameObject
+    float speed = 10f; // the transition speed
+    public Vector2[] positions; // the positions of your screens
+    Vector2 target; // the position being targeted
 
-    // Update is called once per frame
     void FixedUpdate()
-    {
+    { // moves towards the target. If the target is reached it stop
         screen.transform.position = Vector2.MoveTowards(screen.transform.position, target, speed * Time.deltaTime);
     }
 
     public void Press(int num)
-    {
+    { // set the target position
         target = positions[num];
     }
 }
